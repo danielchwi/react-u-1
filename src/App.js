@@ -17,10 +17,11 @@ const App= () =>  {
       })
     })
   }
+  const subtitle = "All the event in Marioland"
 
   return (
     <div className="App">
-      <Title/>
+      <Title title="Events in your area" subtitle={subtitle}/>
       {showEvents && (
         <div>
           <button onClick={() => setShowEvents(false)}>Hide Event</button>
