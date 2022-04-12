@@ -4,6 +4,7 @@ import Title from './components/Title';
 import Modal from './components/Modal';
 
 const App= () =>  {
+  const [showModal, setShowModal] = useState(false)
   const [showEvents, setShowEvents] = useState(true)
   const [events, setEvents] = useState([
     {name: "Hari ulang tahun bapak", id: 1},
@@ -18,6 +19,11 @@ const App= () =>  {
       })
     })
   }
+
+  const handleModalClose = () => {
+    setShowModal(false)
+  }
+
   const subtitle = "All the event in Marioland"
 
   return (
@@ -39,11 +45,15 @@ const App= () =>  {
           <button onClick={() => handleClick(event.id)}>delete event</button>
         </div>
       ))}
-      <Modal>
+
+      {showModal && <Modal handleModalClose={handleModalClose} >
         <h3>Terms and Conditions</h3>
-        <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
-        <a href='youtube.com'>Click to know more</a>
-      </Modal>
+        <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>
+      </Modal>}
+      
+      <div>
+        <button onClick={() => {setShowModal(true)}}>Show modal</button>
+      </div>
 
     </div>
   );
