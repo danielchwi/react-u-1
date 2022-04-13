@@ -40,9 +40,9 @@ const App= () =>  {
           <button onClick={() => setShowEvents(true)}>Show Event</button>
         </div>
       )}
-      {showEvents && <EventList events={events} handleClick={handleClick} />}
+      {showEvents && <EventList events={events} handleClick={handleClick}/>}
 
-      {showModal && <Modal handleModalClose={handleModalClose} >
+      {showModal && <Modal handleModalClose={handleModalClose} isSalesModal={true}>
         <h3>Terms and Conditions</h3>
         <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>
       </Modal>}
